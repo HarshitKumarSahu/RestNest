@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestNest</title>
+</head>
+<body>
+    <h1>All Listing</h1>
+    <ul>
+        <%for( let listing of allListing ) { %>
+            <li><a href="/listings/<%=listing._id%>">title - <%=listing.title%></a></li>
+        <%}%>
+    </ul>
+</body>
+</html>
+
+<!-- <ul>
+    <%for( let listing of allListing ) { %>
+        <li>title - <%=listing.title%></li>
+        <li>description - <%=listing.description%></li>
+        <li>image - <img style="height: 200px;" src="<%=listing.image.url%>" alt=""></li>
+        <li>price - <%=listing.price%></li>
+        <li>location - <%=listing.location%></li>
+        <li>country - <%=listing.country%></li>
+    <%}%>
+</ul> -->
+
