@@ -36,10 +36,25 @@ app.get("/listings" , async (req,res)=>{
 
 // Show Route
 app.get("/listings/:id" , async (req,res)=>{
-    let {id} = req.params;
-    const listing = await Listing.findById(id);
-    res.render("listing/show.ejs" , {listing})
+    res.render("listing/new.ejs")
 })
+
+// New Route
+app.get("/listings/new" , (req,res)=>{
+    res.render("listing/new.ejs")
+})
+app.post("/listings" , async (req,res)=>{
+    const newListing = Listing(req.body.listing);
+    await newListing.save();
+    res.redirect("/listings")
+})
+
+
+
+
+
+
+
 
 // app.get("/testlisting" , async (req,res)=>{
 //     let samplelisting = new Listing({
