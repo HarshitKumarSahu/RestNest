@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override")
+const ejsMate = require("ejs-mate");
 
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/RestNest"
@@ -19,6 +20,9 @@ main()
 async function main() {
     await mongoose.connect(MONGO_URL);
 }
+
+// use ejs-locals for all ejs templates:
+app.engine('ejs', ejsMate);
 
 app.set("view engine" , "ejs");
 app.set("views" , path.join(__dirname , "views"));

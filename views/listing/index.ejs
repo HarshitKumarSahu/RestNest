@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RestNest</title>
-</head>
+<% layout("/layouts/boilerplate") %>
 <body>
     <h1>All Listing</h1>
     <form action="/listings/new" method="GET">
@@ -16,16 +10,3 @@
         <%}%>
     </ul>
 </body>
-</html>
-
-<!-- <ul>
-    <%for( let listing of allListing ) { %>
-        <li>title - <%=listing.title%></li>
-        <li>description - <%=listing.description%></li>
-        <li>image - <img style="height: 200px;" src="<%=listing.image.url%>" alt=""></li>
-        <li>price - <%=listing.price%></li>
-        <li>location - <%=listing.location%></li>
-        <li>country - <%=listing.country%></li>
-    <%}%>
-</ul> -->
-

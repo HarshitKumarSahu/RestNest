@@ -3,7 +3,7 @@ Phase 1 :
 2. RESTful api for CRUD
 
 app.js : contain all routes i.e CRUD
-packages : express , ejs , path , mongoose , nodemon , method-override
+packages : express , ejs , path , mongoose , nodemon , method-override , ejs-mate
 models : listing -> title , description , image , price , location , country
 data.js : contain staring data
 index.js : used to initialize data in mongoDB
@@ -12,4 +12,8 @@ views -> listing -> index.ejs : list of all listing title
                              : listing.price.toLocaleString("en-IN") : place commas to the number according to indian standards
                              : also contain edit & Delete options for listing
                  -> new.ejs : form for new listing : get , post
-                 -> edit.ejs : form for edit : get , put
+                 -> edit.ejs : form for edit : get , put.
+views -> layouts -> boilerplate.ejs : contain boiler plate code files for all ejs files
+ejs-mate : used to create a boiler plate codes for ejs files
+         : const ejsMate = require("ejs-mate");
+         : app.engine('ejs', ejsMate); -> use ejs-locals for all ejs templates:
