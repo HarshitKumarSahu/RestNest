@@ -16,4 +16,7 @@ views -> listing -> index.ejs : list of all listing title
 views -> layouts -> boilerplate.ejs : contain boiler plate code files for all ejs files
 ejs-mate : used to create a boiler plate codes for ejs files
          : const ejsMate = require("ejs-mate");
-         : app.engine('ejs', ejsMate); -> use ejs-locals for all ejs templates:
+         : app.engine('ejs', ejsMate); -> use ejs-locals for all ejs templates
+         : <%- body %> : include raw HTML content that you trust and want to render as HTML.
+         : <% layout("/layouts/boilerplate") %> : include boilerplate.ejs file for all ejs files
+public -> css -> style.css : contain style for ejs files
