@@ -1,6 +1,7 @@
 Phase 1 :
 1. DataBase setup
 2. RESTful api for CRUD
+3. Styling
 
 app.js : contain all routes i.e CRUD
 packages : express , ejs , path , mongoose , nodemon , method-override , ejs-mate
