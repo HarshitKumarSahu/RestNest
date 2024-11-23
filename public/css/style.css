@@ -10,10 +10,13 @@ html, body {
 }
 body {
     background-color: #f8f8f8;
+    overflow-x: hidden;
 }
-
+a {
+    text-decoration: none;
+}
 footer {
-    height: 100vh;
+    height: 10vh;
     width: 100vw;
     background-color: bisque;
     display: flex;
@@ -21,5 +24,29 @@ footer {
     justify-content: center;
 }
 footer p {
-    font-size: 5vw;
+    font-size: 3vw;
+}
+
+/* cards */
+.row {
+    padding: 1rem;
+}
+.card {
+    border: none;
+    margin-bottom: 2rem;
+}
+.card-img-top {
+    border-radius: 1rem;
+    width: 100%;
+    object-fit: cover;
+}
+.card-body {
+    padding: 0.5rem;
+}
+.card-img-overlay {
+    opacity: 0;
+}
+.card-img-overlay:hover {
+    opacity: 1;
+    background-color: #f8f8f848;
 }
