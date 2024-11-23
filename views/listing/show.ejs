@@ -1,16 +1,23 @@
 <% layout("/layouts/boilerplate") %>
 <body>
-    <h1>Listing Details :</h1>
-    <ul>
-        <li>title - <%=listing.title%></li>
-        <li>description - <%=listing.description%></li>
-        <li>image - <img style="height: 200px;" src="<%=listing.image.url%>" alt=""></li>
-        <li>price - &#8377 <%=listing.price.toLocaleString("en-IN")%></li>
-        <li>location - <%=listing.location%></li>
-        <li>country - <%=listing.country%></li>
-    </ul>
-    <a href="/listings/<%=listing._id%>/edit">Edit this Listing</a> <br><br>
-    <form action="/listings/<%=listing._id%>?_method=DELETE" method="POST">
-        <button>Delete Listing</button>
-    </form>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3 style="margin-top: 1rem;">Edit Listing :</h3>
+            <div class="card w-85" style="display: flex; align-items: center;">
+                <img src="<%=listing.image%>" style="height: 15rem;" class="card-img-top" alt="...">
+                <div class="card-body mt-2 pl-3">
+                    <h5 class="card-title" style="margin: 0.5rem 1rem;"><%=listing.title%></h5>
+                    <p class="card-text" style="margin: 0.5rem 1rem;"><%=listing.description%></p>
+                    <p class="card-text" style="margin: 0.5rem 1rem;">&#8377 <%=listing.price.toLocaleString("en-IN")%> / night</p>
+                    <p class="card-text" style="margin: 0.5rem 1rem;"><%=listing.location%> , <%=listing.country%></p>
+                </div>
+                <div class="mb-4 mt-1 d-grid gap-2 col-6 mx-auto">
+                    <a href="/listings/<%=listing._id%>/edit" class="btn btn-primary mb-2" >Edit this Listing</a>
+                    <form action="/listings/<%=listing._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-primary d-grid gap-2 col-12 mx-auto" style="background-color: red; border: none;">Delete Listing</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
