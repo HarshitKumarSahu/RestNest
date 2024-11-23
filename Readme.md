@@ -4,7 +4,7 @@ Phase 1 :
 3. Styling
 
 app.js : contain all routes i.e CRUD
-packages : express , ejs , path , mongoose , nodemon , method-override , ejs-mate
+packages : express , ejs , path , mongoose , nodemon , method-override , ejs-mate , bootstrap
 models : listing -> title , description , image , price , location , country
 data.js : contain staring data
 index.js : used to initialize data in mongoDB
@@ -15,6 +15,8 @@ views -> listing -> index.ejs : list of all listing title
                  -> new.ejs : form for new listing : get , post
                  -> edit.ejs : form for edit : get , put.
 views -> layouts -> boilerplate.ejs : contain boiler plate code files for all ejs files
+views -> includes -> navbar.ejs : navbar for all ejs file
+                  -> footer.ejs : footer for all ejs file
 ejs-mate : used to create a boiler plate codes for ejs files
          : const ejsMate = require("ejs-mate");
          : app.engine('ejs', ejsMate); -> use ejs-locals for all ejs templates
