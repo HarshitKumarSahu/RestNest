@@ -60,15 +60,33 @@ nav #part2 {
     justify-content: space-evenly;
 } */
 footer {
-    height: 10vh;
+    height: 25vh;
     width: 100vw;
-    background-color: #896C60;
+    background-color: rgba(255, 248, 220, 0.408);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+footer a {
+    color: #222;
+}
+footer #icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.725vw;
 }
 footer p {
-    font-size: 3vw;
+    font-size: 1.5vw;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+}
+footer #others {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw;
 }
 
 /* cards */
