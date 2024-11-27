@@ -12,9 +12,9 @@
                     <p class="card-text" style="margin: 0.5rem 1rem;"><%=listing.location%> , <%=listing.country%></p>
                 </div>
                 <div class="mb-4 mt-1 d-grid gap-2 col-6 mx-auto">
-                    <a href="/listings/<%=listing._id%>/edit" class="btn btn-primary mb-2" >Edit this Listing</a>
+                    <a href="/listings/<%=listing._id%>/edit" class="btn btn-primary mb-2" style="background-color: #004aad;" >Edit this Listing</a>
                     <form action="/listings/<%=listing._id%>?_method=DELETE" method="POST">
-                        <button class="btn btn-primary d-grid gap-2 col-12 mx-auto" style="background-color: red; border: none;">Delete Listing</button>
+                        <button class="btn btn-primary d-grid gap-2 col-12 mx-auto" style="background-color: #bc1823; border: none;">Delete Listing</button>
                     </form>
                 </div>
             </div>
