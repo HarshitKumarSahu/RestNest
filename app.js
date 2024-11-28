@@ -44,10 +44,15 @@ app.get("/listings" , async (req,res)=>{
 app.get("/listings/new" , (req,res)=>{
     res.render("listing/new.ejs")
 })
-app.post("/listings" , async (req,res)=>{
-    const newListing = Listing(req.body.listing);
-    await newListing.save();
-    res.redirect("/listings")
+app.post("/listings" , async (req,res,next)=>{
+    try {
+        const newListing = Listing(req.body.listing);
+        await newListing.save();
+        res.redirect("/listings")
+    } catch(err) {
+        next(err)
+    }
+
 })
 
 // Show Route
@@ -99,6 +104,12 @@ app.delete("/listings/:id" , async (req,res)=>{
 //         })
 //     res.send("success...")
 // })
+
+// error handling middleware
+app.use((err, req, res, next)=>{
+    console.log(err);
+    res.send("something went wrong");
+})
 
 app.listen("8080" , ()=>{
     console.log("app is listening at 8080");

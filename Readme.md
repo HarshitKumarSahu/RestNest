@@ -23,3 +23,5 @@ ejs-mate : used to create a boiler plate codes for ejs files
          : <%- body %> : include raw HTML content that you trust and want to render as HTML.
          : <% layout("/layouts/boilerplate") %> : include boilerplate.ejs file for all ejs files
 public -> css -> style.css : contain style for ejs files
+       -> js -> script.js : contain all js part for ejs files
+utils -> contain all utilites of project i.e ExpressError.js wrapAsync... etc
