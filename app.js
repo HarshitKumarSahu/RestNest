@@ -114,34 +114,3 @@ app.listen("8080" , ()=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// app.get("/testlisting" , async (req,res)=>{
-//     let samplelisting = new Listing({
-//         title: "Sample Listing 2",
-//         description: "This is a second sample listing for demonstration purposes.",
-//         price: 200,
-//         location: "123 Main Second",
-//         country: "UK"
-//     })
-    
-//     await samplelisting.save()
-//         .then((res)=>{
-//             console.log("sample was saved");
-//             console.log(res);
-//         })
-//         .catch((err)=>{
-//             console.log("err");
-//         })
-//     res.send("success...")
-// })
