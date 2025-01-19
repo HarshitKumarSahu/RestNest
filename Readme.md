@@ -3,6 +3,9 @@ Phase 1 :
 2. RESTful api for CRUD
 3. Styling
 
+Phase 2 :
+1. Review model
+
 app.js : contain all routes i.e CRUD
 packages : express , ejs , path , mongoose , nodemon , method-override , ejs-mate , bootstrap , joi
 models : listing -> title , description , image , price , location , country

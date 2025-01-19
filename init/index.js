@@ -22,4 +22,5 @@ const initDB = async ()=> {
     console.log("data inserted in DB")
 }
 
+// only runs once to initialize sample data
 initDB()
