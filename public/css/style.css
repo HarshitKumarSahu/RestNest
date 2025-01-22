@@ -45,7 +45,7 @@ footer #others {
     justify-content: center;
     gap: 3vw;
 }
-.card {
+.listing-card {
     border: none;
     margin-bottom: 2rem;
 }
