@@ -6,6 +6,7 @@ const methodOverride = require("method-override")
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js")
 const session = require("express-session")
+const flash = require("connect-flash")
 
 const listings = require("./routes/listings.js")
 const reviews = require("./routes/reviews.js")
@@ -34,13 +35,6 @@ app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname , "/public")));
 
-app.get("/" , (req,res)=>{
-    res.send("RestNest");
-})
-
-app.use("/listings", listings)
-app.use("/listings/:id/reviews", reviews)
-
 const sessionOption = {
     secret : "mySuperDuperSecretCode" ,
     resave : false ,
@@ -51,8 +45,22 @@ const sessionOption = {
         httpOnly: true   // Prevents client-side access
     }
 }
-app.use(session(sessionOption));
 
+app.use(session(sessionOption));
+app.use(flash());
+
+app.use((req , res , next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error")
+    next();
+})
+
+app.use("/listings", listings)
+app.use("/listings/:id/reviews", reviews)
+
+app.get("/" , (req,res)=>{
+    res.send("RestNest");
+})
 
 // except all existing routs errors
 app.all("*" , (req,res,next)=>{
