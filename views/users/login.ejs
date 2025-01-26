@@ -1,0 +1,31 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row mt-4 mb-4">
+        <h3 class="col-8 offset-2">LogIn for RestNest</h3>
+        <div class="col-8 offset-2">
+            <form action="/users/login" method="POST" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Enter Username" class="form-control" required>
+                    <div class="valid-feedback">
+                        Done
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter username
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter Password" class="form-control" required>
+                    <div class="valid-feedback">
+                        Done
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter username
+                    </div>
+                </div>
+                <button class="btn btn-success">SignUp</button>
+            </form>
+        </div>
+    </div>
+</body>
