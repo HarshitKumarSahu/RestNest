@@ -7,6 +7,9 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js")
 const session = require("express-session")
 const flash = require("connect-flash")
+const passport = require("passport")
+const LocalStrategy = require("passport-local")
+const User = require("./models/user.js")
 
 const listings = require("./routes/listings.js")
 const reviews = require("./routes/reviews.js")
@@ -49,6 +52,12 @@ const sessionOption = {
 app.use(session(sessionOption));
 app.use(flash());
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use((req , res , next) => {
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error")
@@ -60,6 +69,16 @@ app.use("/listings/:id/reviews", reviews)
 
 app.get("/" , (req,res)=>{
     res.send("RestNest");
+})
+
+app.get("/demoUser" , async (req,res) => {
+    let fakeUser = new User({
+        email : "student01@gmail.com",
+        username : "deltaStudent01"
+    })
+
+    let newUser = await User.register(fakeUser , "helloworld");
+    res.send(newUser)
 })
 
 // except all existing routs errors
