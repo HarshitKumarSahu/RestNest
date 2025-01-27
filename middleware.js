@@ -1,6 +1,6 @@
 const Listing = require("./models/listing.js");
+const Review = require("./models/review.js")
 const ExpressError = require("./utils/ExpressError.js")
-const Review = require("./models/review.js");
 const {listingSchemaJoi , reviewSchemaJoi} = require("./schema.js");
 
 // server side validation or error handling - listing
@@ -49,4 +49,18 @@ module.exports.isOwner = async (req,res,next) => {
         return res.redirect(`/listings/${id}`)
     }
     next()
+}
+
+module.exports.isReviewAuthor = async (req,res,next) => {
+    let { id , reviewId} = req.params;
+    let review = await Review.findById(reviewId);
+    if(!review || !review.author) {
+        req.flash("error", "Review not found");
+        return res.redirect(`/listings/${id}`);
+    }
+    if(!res.locals.currentUser || !review.author.equals(res.locals.currentUser._id)) {
+        req.flash("error" , "You are not authorized to modify this review");
+        return res.redirect(`/listings/${id}`);
+    }
+    next();
 }
