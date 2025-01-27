@@ -7,6 +7,7 @@
                 <img src="<%=listing.image%>" style="height: 15rem;" class="card-img-top" alt="...">
                 <div class="card-body mt-2 pl-3">
                     <!-- <h5 class="card-title" style="margin: 0.5rem 1rem;"><%=listing.title%></h5> -->
+                    <p class="card-text" style="margin: 0.5rem 1rem;">Owner : <%=listing.owner.username%></p>
                     <p class="card-text" style="margin: 0.5rem 1rem;"><%=listing.description%></p>
                     <p class="card-text" style="margin: 0.5rem 1rem;">&#8377 <%=listing.price.toLocaleString("en-IN")%> / night</p>
                     <p class="card-text" style="margin: 0.5rem 1rem;"><%=listing.location%> , <%=listing.country%></p>
