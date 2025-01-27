@@ -61,7 +61,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use((req , res , next) => {
     res.locals.success = req.flash("success");
-    res.locals.error = req.flash("error")
+    res.locals.error = req.flash("error");
+    res.locals.currentUser = req.user;
     next();
 })
 
@@ -73,15 +74,15 @@ app.get("/" , (req,res)=>{
     res.send("RestNest");
 })
 
-app.get("/demoUser" , async (req,res) => {
-    let fakeUser = new User({
-        email : "student01@gmail.com",
-        username : "deltaStudent01"
-    })
+// app.get("/demoUser" , async (req,res) => {
+//     let fakeUser = new User({
+//         email : "student01@gmail.com",
+//         username : "deltaStudent01"
+//     })
 
-    let newUser = await User.register(fakeUser , "helloworld");
-    res.send(newUser)
-})
+//     let newUser = await User.register(fakeUser , "helloworld");
+//     res.send(newUser)
+// })
 
 // except all existing routs errors
 app.all("*" , (req,res,next)=>{

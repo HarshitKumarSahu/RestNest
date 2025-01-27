@@ -9,6 +9,15 @@
           <a class="nav-link" href="/listings">All Listings</a>
           <a class="nav-link" href="/listings/new">New Listings</a>
         </div>
+        <div class="navbar-nav ms-auto">
+          <% if(!currentUser) { %>
+            <a class="nav-link" href="/users/signup">Signup</a>
+            <a class="nav-link" href="/users/login">login</a>
+          <% } %>
+          <% if(currentUser) { %>
+            <a class="nav-link" href="/users/logout">logout</a>
+          <% } %>
+        </div>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
         <span class="navbar-toggler-icon"></span>

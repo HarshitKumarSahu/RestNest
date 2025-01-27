@@ -5,6 +5,7 @@ Phase 1 :
 
 Phase 2 :
 1. Review model
+2. User model
 
 app.js : contain all routes i.e CRUD
 packages : express , ejs , path , mongoose , nodemon , method-override , ejs-mate , bootstrap , joi
