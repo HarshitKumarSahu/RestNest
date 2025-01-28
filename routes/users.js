@@ -1,37 +1,18 @@
 const express = require("express");
 const router = express.Router();
+exports.router = router;
 const wrapAsync = require("../utils/wrapAsync.js");
 const User = require("../models/user.js")
 const passport = require("passport")
 const {saveRedirectUrl} = require("../middleware.js")
+const userController = require("../controllers/users.js");
 
-router.get("/signup" , (req,res) => {
-    res.render("users/signup.ejs")
-})
+// user signup
+router.get("/signup" , userController.renderSignup)
+router.post("/signup" , wrapAsync(userController.signUp))
 
-router.post("/signup" , wrapAsync(async (req,res, next) => {
-    try {
-        let {username , email , password} = req.body;
-        let newUser = new User({email, username});
-        const registeredUser = await User.register(newUser , password);
-        
-        req.login(registeredUser , (err) => {
-            if(err) {
-                return next(err);
-            }
-            req.flash("success" , "Welcome to RestNest Residence");
-            res.redirect("/listings");
-        });
-    } catch(e) {
-        req.flash("error" , e.message);
-        res.redirect("/users/signup")
-    }
-}))
-
-router.get("/login" , (req,res) => {
-    res.render("users/login.ejs")
-})
-
+// user login
+router.get("/login" , userController.renderLogin)
 router.post(
     "/login" ,
     saveRedirectUrl , 
@@ -39,20 +20,9 @@ router.post(
         failureRedirect : "/users/login" ,
         failureFlash : true
     }) , 
-    async (req,res) => {
-       req.flash("success" , "welcome Back to RestNest Residence");
-       let redirectUrl = res.locals.redirectUrl || "/listings";
-       res.redirect(redirectUrl)
-})
+    userController.logIn);
 
-router.get("/logout" , (req , res) => {
-    req.logout((err) => {
-        if(err) {
-            next(err);
-        }
-        req.flash("success" , "you are logged out")
-        res.redirect("/listings")
-    })
-})
+// user logout
+router.get("/logout" , userController.logOut)
 
 module.exports = router
