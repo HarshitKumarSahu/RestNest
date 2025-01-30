@@ -10,7 +10,10 @@ Phase 2 :
 3. logIn , signUp , logOut
 
 Phase 3 :
-1. Controller
+1. Controller - MVC
+2. router.route()
+3. starability - for rating
+4. multer , cloudnary for images
 
 app.js : contain all routes i.e CRUD
 
