@@ -74,9 +74,9 @@ app.use("/listings", listingsRoute)
 app.use("/listings/:id/reviews", reviewsRoute)
 app.use("/users" , usersRoute)
 
-app.get("/" , (req,res)=>{
-    res.send("RestNest");
-})
+// app.get("/" , (req,res)=>{
+//     res.send("RestNest");
+// })
 
 // app.get("/demoUser" , async (req,res) => {
 //     let fakeUser = new User({

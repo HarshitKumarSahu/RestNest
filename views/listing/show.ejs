@@ -60,7 +60,7 @@
             <hr>
             <h5>All Reviews</h5>
             <div class="row">
-                <% for(review of listing.reviews ) {%>
+                <% for(review of listing.reviews.reverse() ) {%>
                     <div class="card col-5 mb-2 mt-2 p-0" style="margin-left: 1rem; ">
                         <div class="card-header">
                             @<%= review.author.username %>

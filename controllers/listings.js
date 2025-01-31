@@ -20,6 +20,7 @@ module.exports.newListing = async (req,res,next)=>{
     res.redirect("/listings")
 }
 
+
 module.exports.showListing = async (req,res)=>{
     let {id} = req.params;
     const listing = await Listing.findById(id)

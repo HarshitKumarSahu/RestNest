@@ -6,7 +6,7 @@
     </form> -->
 
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-es-1" style="padding: 1rem;">
-        <%for( let listing of allListing ) { %>
+        <%for(let listing of allListing.reverse()) { %>
         <a href="/listings/<%=listing._id%>">
             <div class="card listing-card col">
                 <img src="<%=listing.image.url%>" class="card-img-top " alt="#listing_image" style="height: 18rem;">
